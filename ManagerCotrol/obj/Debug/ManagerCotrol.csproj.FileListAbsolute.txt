@@ -1,0 +1,11 @@
+D:\VS2022\ManagerCotrol\ManagerCotrol\bin\Debug\ManagerCotrol.exe.config
+D:\VS2022\ManagerCotrol\ManagerCotrol\bin\Debug\ManagerCotrol.exe
+D:\VS2022\ManagerCotrol\ManagerCotrol\bin\Debug\ManagerCotrol.pdb
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.AssemblyReference.cache
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.SuggestedBindingRedirects.cache
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.Properties.Resources.resources
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.Form1.resources
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.GenerateResource.cache
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.CoreCompileInputs.cache
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.exe
+D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.pdb
