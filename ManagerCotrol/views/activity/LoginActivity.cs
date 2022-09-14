@@ -138,7 +138,7 @@ namespace ManagerCotrol.views.activity
             labelInfoFail = new Label();
             labelInfoFail.SetBounds(width / 2 - 100, height - 200, 200, 40);
             labelInfoFail.Name = Form1Helpers.NOTIFY_TEXT;
-            labelInfoFail.Font = new Font(Form1Helpers.FONT_FAMILY, 10, FontStyle.Regular);
+            labelInfoFail.Font = new Font(Form1Helpers.FONT_FAMILY, 10, FontStyle.Bold);
             labelInfoFail.TextAlign = ContentAlignment.MiddleCenter;
             labelInfoFail.BackColor = Color.Transparent;
             

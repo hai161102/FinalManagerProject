@@ -1,34 +1,56 @@
-﻿using ManagerCotrol.utils;
+﻿using ManagerCotrol.db.dao;
+using ManagerCotrol.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ManagerCotrol.model.login
 {
     internal class SignUpRepone
     {
         private OnSignUpCallbak callbak;
+        private Dao dao;
 
         public SignUpRepone(OnSignUpCallbak callbak)
         {
+            dao = new Dao();
             this.callbak = callbak;
         }
 
-        public void signUp(string user, string pass, string permission)
+        [Obsolete]
+        public void SignUp(string user, string pass, string permission)
         {
-            if (user != Infomation.USER_NAME)
+            AccountLogin account = new AccountLogin(user, pass, permission);
+            if (!dao.isOpenDataBase())
             {
-                Infomation.USER_NAME = user;
-                Infomation.PASSWORD = pass;
-                callbak.onSignUpSuccess();
+                dao.openDataBase();
+            }
+            if (!isExistAccount(account))
+            {
+                dao.CreateAccount(account);
+                callbak.onSignUpSuccess(account);
             }
             else
             {
                 callbak.onSignUpFailure("Account is exist!");
             }
             
+        }
+
+        public bool isExistAccount(AccountLogin accountSignUp)
+        {
+            List<AccountLogin> list = dao.getListAccountFromDB();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (accountSignUp.getUserName() == list[i].getUserName())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

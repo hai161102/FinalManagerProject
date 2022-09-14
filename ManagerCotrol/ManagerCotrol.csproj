@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db\dao\Dao.cs" />
     <Compile Include="model\login\LoginRespone.cs" />
     <Compile Include="model\login\OnResultCallbak.cs" />
     <Compile Include="model\login\OnSignUpCallbak.cs" />
@@ -55,14 +71,25 @@
     <Compile Include="presenter\OnClickListener.cs" />
     <Compile Include="presenter\onTextChangeListener.cs" />
     <Compile Include="presenter\SignUpPresenter.cs" />
+    <Compile Include="utils\AccountLogin.cs" />
     <Compile Include="utils\Infomation.cs" />
     <Compile Include="views\activity\LoginActivity.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="views\activity\SignUpActivity.cs">
+    <Compile Include="views\activity\MainActivity.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="views\activity\SignUp\OnSignInClick.cs" />
+    <Compile Include="views\activity\SignUp\SignUpActivity.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="views\buttons\ButtonView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="views\child_views\MenuView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="views\child_views\TabViewInfomation.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="views\Form1.cs">
@@ -115,12 +142,33 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="db\database\ProjectDataBase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="db\database\ProjectDataBase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>ProjectDataBase.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bg_btn_signup.png" />
     <None Include="Resources\bg_btn_login.png" />
     <None Include="Resources\bg_login_1.png" />
     <None Include="Resources\bg_login.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

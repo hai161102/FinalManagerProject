@@ -9,6 +9,7 @@ namespace ManagerCotrol.views.panels
 {
     abstract class PanelView : Panel
     {
+
         protected PanelView(System.Windows.Forms.DockStyle dockStyle, int x, int y, int width, int height)
         {
             this.SetBounds(x, y, width, height);

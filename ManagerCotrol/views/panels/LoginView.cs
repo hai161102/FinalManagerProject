@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagerCotrol.utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ManagerCotrol.views.panels
 {
     internal interface LoginView
     {
-        void onLoginSuccess();
+        void onLoginSuccess(AccountLogin account);
         void onLoginFailure(string mess);
     }
 }

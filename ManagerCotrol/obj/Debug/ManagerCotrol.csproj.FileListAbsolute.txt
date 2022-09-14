@@ -9,3 +9,16 @@ D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.GenerateRes
 D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.CoreCompileInputs.cache
 D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.exe
 D:\VS2022\ManagerCotrol\ManagerCotrol\obj\Debug\ManagerCotrol.pdb
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\bin\Debug\ManagerCotrol.exe.config
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\bin\Debug\ManagerCotrol.exe
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\bin\Debug\ManagerCotrol.pdb
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.AssemblyReference.cache
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.SuggestedBindingRedirects.cache
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.Properties.Resources.resources
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.Form1.resources
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.GenerateResource.cache
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.csproj.CoreCompileInputs.cache
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.exe
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\obj\Debug\ManagerCotrol.pdb
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\bin\Debug\db\database\ProjectDataBase.mdf
+C:\Users\vipvl\source\repos\FinalManagerProject\ManagerCotrol\bin\Debug\db\database\ProjectDataBase_log.ldf

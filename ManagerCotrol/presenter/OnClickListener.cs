@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManagerCotrol.presenter
 {
-    internal interface OnClickListener
+    public interface OnClickListener
     {
         void OnClick(object sender, EventArgs e);
     }

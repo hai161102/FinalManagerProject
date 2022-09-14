@@ -18,6 +18,7 @@ namespace ManagerCotrol
         public static string EXIT_SIGNUP = "EXIT_SIGNUP";
         public static string VIEW_SIGNUP = "VIEW_SIGNUP";
         public static FontFamily FONT_FAMILY = null;
+        internal static string MAIN_ACTIVITY = "MAIN_ACTIVITY";
 
         public static PrivateFontCollection getFont(byte[] font)
         {

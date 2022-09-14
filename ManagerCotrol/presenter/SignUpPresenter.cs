@@ -1,4 +1,5 @@
 ﻿using ManagerCotrol.model.login;
+using ManagerCotrol.utils;
 using ManagerCotrol.views.panels;
 using System;
 using System.Collections.Generic;
@@ -10,28 +11,29 @@ namespace ManagerCotrol.presenter
 {
     internal class SignUpPresenter : OnSignUpCallbak
     {
-        private SignUpView SignUpView;
-        private SignUpRepone SignUpRepone;
+        private SignUpView signUpView;
+        private SignUpRepone signUpRepone;
 
         public SignUpPresenter(SignUpView signUpView)
         {
-            this.SignUpView = signUpView;
-            this.SignUpRepone = new SignUpRepone(this);
+            this.signUpView = signUpView;
+            this.signUpRepone = new SignUpRepone(this);
         }
 
         public void onSignUpFailure(string mes)
         {
-            this.SignUpView.onFailed(mes);
+            this.signUpView.onFailed(mes);
         }
 
-        public void onSignUpSuccess()
+        public void onSignUpSuccess(AccountLogin account)
         {
-            this.SignUpView.onSucces();
+            this.signUpView.onSucces(account);
         }
 
+        [Obsolete]
         public void signUp(string user, string pass, string permission)
         {
-            this.SignUpRepone.signUp(user, pass, permission);
+            this.signUpRepone.SignUp(user, pass, permission);
         }
     }
 }

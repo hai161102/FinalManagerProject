@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagerCotrol.utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ManagerCotrol.model.login
 {
     internal interface OnSignUpCallbak
     {
-        void onSignUpSuccess();
+        void onSignUpSuccess(AccountLogin account);
         void onSignUpFailure(String mes);
     }
 }

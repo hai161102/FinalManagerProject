@@ -1,5 +1,7 @@
 ﻿using ManagerCotrol.presenter;
+using ManagerCotrol.utils;
 using ManagerCotrol.views.activity;
+using ManagerCotrol.views.activity.SignUp;
 using ManagerCotrol.views.buttons;
 using ManagerCotrol.views.labels;
 using ManagerCotrol.views.panels;
@@ -12,7 +14,7 @@ using System.Windows.Forms;
 
 namespace ManagerCotrol
 {
-    partial class Form1 : OnClickListener, LoginView
+    partial class Form1 : OnClickListener, LoginView, SignUpView
     {
         /// <summary>
         /// Required designer variable.
@@ -44,15 +46,18 @@ namespace ManagerCotrol
         private SignUpActivity signUpActivity;
         private int windowWidth, windowHeight;
         private LoginPresenter loginPresenter;
+        private SignUpPresenter signUpPresenter;
+        private MainActivity mainActivity;
         
         private Stack<Panel> stackPanel = new Stack<Panel>();
-        
+        private Thread thread;
 
         private void InitializeComponent()
         {
 
 
             this.loginPresenter = new LoginPresenter(this);
+            this.signUpPresenter = new SignUpPresenter(this);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
@@ -72,12 +77,16 @@ namespace ManagerCotrol
             this.signUpActivity.Name = Form1Helpers.SIGN_UP_NEW_ACC;
             this.signUpActivity.setOnClickListener(this);
 
+            this.mainActivity = new MainActivity(System.Windows.Forms.DockStyle.Fill, 0, 0, windowWidth, windowHeight);
+            mainActivity.Name = Form1Helpers.MAIN_ACTIVITY;
+
             this.SuspendLayout();
             this.ResizeRedraw = false;
             this.Controls.Add(this.loginActivity);
 
         }
 
+        [Obsolete]
         public void OnClick(object sender, EventArgs e)
         {
             Button button = sender as Button;
@@ -103,12 +112,21 @@ namespace ManagerCotrol
                     Thread.Sleep(100);
                     loginActivity.Show();
                 }
+                if (button.Name == Form1Helpers.SIGN_UP_NEW_ACC)
+                {
+                    signUpPresenter.signUp(signUpActivity.getUser().Text, signUpActivity.getPass().Text, signUpActivity.getPermission().Text);
+                }
+
             }
             
         }
 
-        public void onLoginSuccess()
+        public void onLoginSuccess(AccountLogin account)
         {
+            
+            this.Controls.Clear();
+            this.Controls.Add(mainActivity);
+            this.mainActivity.Show();
             
         }
 
@@ -118,10 +136,26 @@ namespace ManagerCotrol
             loginActivity.getLabelFailed().ForeColor = Color.Red;
         }
 
+        public void onSucces(AccountLogin account)
+        {
+            this.signUpActivity.getFailLabel().ForeColor = Color.Green;
+            this.signUpActivity.getFailLabel().Text = "Please waits, this action can take a while";
+            startToMain(account);
+            
+        }
+       
+        public void onFailed(string mes)
+        {
+            signUpActivity.getFailLabel().Text = mes;
+            signUpActivity.getFailLabel().ForeColor = Color.Red;
+        }
 
+        private void startToMain(AccountLogin account)
+        {
+            Thread.Sleep(2000);
+            loginPresenter.login(account.getUserName(), account.getPassword());
 
-
-
+        }
         #endregion
     }
 }

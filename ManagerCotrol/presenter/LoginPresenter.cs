@@ -1,4 +1,5 @@
 ﻿using ManagerCotrol.model.login;
+using ManagerCotrol.utils;
 using ManagerCotrol.views.panels;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,9 @@ namespace ManagerCotrol.presenter
             loginView.onLoginFailure(mess);
         }
 
-        public void loginSuccess()
+        public void loginSuccess(AccountLogin account)
         {
-            loginView.onLoginSuccess();
+            loginView.onLoginSuccess(account);
         }
 
         public void login(string user, string pass)

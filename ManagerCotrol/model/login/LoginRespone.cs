@@ -1,4 +1,5 @@
-﻿using ManagerCotrol.utils;
+﻿using ManagerCotrol.db.dao;
+using ManagerCotrol.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,12 @@ namespace ManagerCotrol.model.login
     internal class LoginRespone
     {
         private OnResultCallbak onResultCallbak;
+        List<AccountLogin> accounts = new List<AccountLogin>();
+        Dao dao;
 
         public LoginRespone(OnResultCallbak onResultCallbak)
         {
+            dao = new Dao();
             this.onResultCallbak = onResultCallbak;
         }
 
@@ -23,12 +27,16 @@ namespace ManagerCotrol.model.login
                 onResultCallbak.loginFailed("Info not empty!");
                 return;
             }
-            if (username != Infomation.USER_NAME || password != Infomation.PASSWORD)
+            accounts = dao.getListAccountFromDB();
+            accounts.ForEach(account =>
             {
-                onResultCallbak.loginFailed("Info not true");
-                return ;
-            }
-            onResultCallbak.loginSuccess();
+                if (username == account.getUserName() || password == account.getPassword())
+                {
+                    onResultCallbak.loginSuccess(account);
+                    return;
+                }
+            });
+            onResultCallbak.loginFailed("Account not true, you need check account again or create new account");
         }
     }
 }
