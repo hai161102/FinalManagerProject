@@ -30,7 +30,7 @@ namespace ManagerCotrol.model.login
             accounts = dao.getListAccountFromDB();
             accounts.ForEach(account =>
             {
-                if (username == account.getUserName() || password == account.getPassword())
+                if (username == account.getUserName() && password == account.getPassword())
                 {
                     onResultCallbak.loginSuccess(account);
                     return;

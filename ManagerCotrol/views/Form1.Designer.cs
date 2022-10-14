@@ -6,6 +6,7 @@ using ManagerCotrol.views.buttons;
 using ManagerCotrol.views.labels;
 using ManagerCotrol.views.panels;
 using ManagerCotrol.views.textbox;
+using ManagerProjectDotNet.base_app.linear;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -40,7 +41,6 @@ namespace ManagerCotrol
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        /// 
 
         private LoginActivity loginActivity;
         private SignUpActivity signUpActivity;
@@ -60,6 +60,7 @@ namespace ManagerCotrol
             this.signUpPresenter = new SignUpPresenter(this);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = Color.Black;
             this.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             this.Name = "Manager";
             this.Text = "Manager";
@@ -77,7 +78,7 @@ namespace ManagerCotrol
             this.signUpActivity.Name = Form1Helpers.SIGN_UP_NEW_ACC;
             this.signUpActivity.setOnClickListener(this);
 
-            this.mainActivity = new MainActivity(System.Windows.Forms.DockStyle.Fill, 0, 0, windowWidth, windowHeight);
+            this.mainActivity = new MainActivity(LinearLayout.MATCH_PARENT, LinearLayout.MATCH_PARENT, this);
             mainActivity.Name = Form1Helpers.MAIN_ACTIVITY;
 
             this.SuspendLayout();
@@ -127,7 +128,9 @@ namespace ManagerCotrol
             this.Controls.Clear();
             this.Controls.Add(mainActivity);
             this.mainActivity.Show();
-            
+            this.BackColor = System.Drawing.Color.Gray;
+
+
         }
 
         public void onLoginFailure(string mess)
@@ -154,7 +157,6 @@ namespace ManagerCotrol
         {
             Thread.Sleep(2000);
             loginPresenter.login(account.getUserName(), account.getPassword());
-
         }
         #endregion
     }
